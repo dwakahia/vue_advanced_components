@@ -35,7 +35,7 @@ const routes = [
 
 const router = new VueRouter({
     mode: 'history',
-    linkExactActiveClasss: 'bg-gray-800  shadow',
+    linkExactActiveClass: 'bg-gray-800  shadow',
     routes: routes
 })
 

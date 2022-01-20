@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development",
     "dev": "webpack && webpack-dev-server --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -16,13 +16,15 @@
     "@fortawesome/fontawesome-free": "^5.15.4",
     "autoprefixer": "^9.8.8",
     "core-js": "^3.20.3",
-    "postcss": "^7.0.39",
-    "vue-sweetalert2": "^5.0.2",
+    "express": "^4.17.2",
     "moment": "^2.29.1",
+    "postcss": "^7.0.39",
+    "serve-static": "^1.14.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
-    "vue-tailwind": "^2.5.0",
     "vue": "^2.6.14",
-    "vue-router": "^3.5.3"
+    "vue-router": "^3.5.3",
+    "vue-sweetalert2": "^5.0.2",
+    "vue-tailwind": "^2.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",

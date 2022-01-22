@@ -27,7 +27,6 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
 
 sequelize.sync({
     force: true,
-    logging: console.log
 }).then(result => {
     console.log(result);
     app.listen(port, () => {

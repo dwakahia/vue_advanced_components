@@ -43,6 +43,7 @@ const store = new Vuex.Store({
             Vue.$toast.success('Logged in successfully.', {
                 position: 'top-right'
             })
+            location.reload();
         }
         ,
         clearUserData() {

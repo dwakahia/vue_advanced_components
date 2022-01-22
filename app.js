@@ -1,19 +1,41 @@
-import Vue from "vue";
-import VueTailwind from 'vue-tailwind';
-Vue.use(VueTailwind);
-import VueSweetalert2 from 'vue-sweetalert2';
-import 'sweetalert2/dist/sweetalert2.min.css';
-Vue.use(VueSweetalert2);
-import moment from 'moment'
-Vue.prototype.moment = moment
+const express = require('express')
+const app = express();
+const port = process.env.PORT || 3000;
+const users = require('./routes/users')
+const path = require('path')
+const bodyParser = require('body-parser');
+const sequelize = require('./util/database');
+const user = require('./models/user')
 
-import './components'
-import './assets/scss/app.scss'
-import './assets/style.css'
-import router from "./router";
+app.use(bodyParser.json())
+
+app.use(express.json())
+const cors = require('cors');
+app.use(cors())
 
 
-new Vue({
-    el: '#app',
-    router
-})
+app.use('/api/v1/users', users);
+
+if (process.env.NODE_ENV === 'PRODUCTION') {
+    app.use(express.static(path.join(__dirname, './frontend/dist')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, './frontend/dist/index.html'))
+    })
+}
+
+
+
+sequelize.sync({
+    force: true,
+    logging: console.log
+}).then(result => {
+    console.log(result);
+    app.listen(port, () => {
+        console.log(`listening at port ${port}`)
+    })
+}).catch(error => {
+    console.log(error);
+});
+
+
+

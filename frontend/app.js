@@ -20,8 +20,8 @@ Vue.prototype.moment = moment
 import './components'
 import './assets/scss/app.scss'
 import './assets/style.css'
-import router from "./router";
-import store from './store'
+import router from "./routes/router";
+import store from './store/store'
 
 
 

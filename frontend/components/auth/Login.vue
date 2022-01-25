@@ -1,6 +1,6 @@
 <template>
   <base-layout>
-    <form @submit.prevent="login">
+    <form id="loginForm" @submit.prevent="login">
       <p class="text-center text-indigo-600 font-semibold my-2 text-lg">Users List</p>
       <hr>
       <p class="text-center text-indigo-600 font-semibold my-2 text-sm">Please Login</p>
@@ -58,7 +58,7 @@
 import {TInput} from "vue-tailwind/dist/components";
 import CustomButton from "../common/CustomButton";
 import BaseLayout from "./BaseLayout";
-import http from "../../http";
+import http from "../../utils/http";
 
 export default {
   name: "Login",

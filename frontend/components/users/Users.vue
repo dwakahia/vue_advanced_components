@@ -9,7 +9,7 @@
       </template>
     </bread-crumbs>
     <div class="md:flex justify-between items-center">
-      <button class="p-3 rounded-lg text-white w-full md:w-auto bg-blue-600 mb-3"  @click="showModal">Add User</button>
+      <button id="addUser" class="p-3 rounded-lg text-white w-full md:w-auto bg-blue-600 mb-3"  @click="showModal">Add User</button>
       <div class="relative mb-2 w-full md:w-1/4">
         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           <i class="fa fa-search"></i>
@@ -39,8 +39,8 @@ import MobileView from "./MobileView";
 import EmptyView from "../common/EmptyView";
 import UsersModal from "./UsersModal";
 import {mapGetters} from "vuex"
-import store from "../../store";
-import http from "../../http";
+import store from "../../store/store";
+import http from "../../utils/http";
 import Vue from "vue";
 
 export default {

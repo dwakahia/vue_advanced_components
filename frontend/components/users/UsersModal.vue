@@ -31,7 +31,7 @@
         <t-button v-if="editMode" @click="updateUser" type="button">
           Update User
         </t-button>
-        <t-button v-else @click="saveUser" type="button">
+        <t-button id="showModal" v-else @click="saveUser" type="button">
           Save User
         </t-button>
       </div>

@@ -2,9 +2,11 @@ const { VueLoaderPlugin } = require("vue-loader");
 const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const nodeExternals = require('webpack-node-externals')
 
 
 module.exports = {
+    externals: [nodeExternals()],
     mode: "development",
     entry: {
         main: "./app.js",

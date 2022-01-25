@@ -26,7 +26,7 @@
       </tr>
       </thead>
       <tbody class="bg-white divide-y divide-gray-200">
-      <tr v-for="(user,index) in users" :key="index">
+      <tr v-for="(user,index) in users" :key="index" class="user-list">
         <td class="px-6 py-4 whitespace-nowrap">
           <div class="flex items-center">
             <div class="text-sm font-medium text-gray-900">
@@ -44,7 +44,8 @@
                           </span>
         </td>
         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-          {{user.dob ?  moment(user.dob).format('Do MMMM YYYY')  : ''}}
+<!--          {{user.dob ?  moment(user.dob).format('Do MMMM YYYY')  : ''}}-->
+          {{user.dob}}
         </td>
         <td class="px-6 py-4 text-center">
           <custom-button @click_event="deleteUser(user)" type="delete" name="Delete"></custom-button>

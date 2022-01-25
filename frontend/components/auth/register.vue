@@ -1,6 +1,6 @@
 <template>
   <base-layout>
-    <form @submit.prevent="register">
+    <form id="regForm" @submit.prevent="register">
       <p class="text-center text-indigo-600 font-semibold my-2 text-lg">Users List</p>
       <hr>
       <p class="text-center text-indigo-600 font-semibold my-2 text-sm">Please Register</p>
@@ -19,7 +19,7 @@
       <div class="mb-4">
         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name</label>
         <div class="flex">
-          <input type="text" id="name" v-model="form.name" class="rounded-none rounded-l-lg bg-gray-50 border
+          <input type="text" id="name"  v-model="form.name" class="rounded-none rounded-l-lg bg-gray-50 border
              border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0
              w-full text-sm border-gray-300 p-2.5" placeholder="Name">
           <span
@@ -27,12 +27,12 @@
               <i class="fa fa-user"></i>
           </span>
         </div>
-        <p class="mt-2 text-sm text-red-600 dark:text-red-500" v-if="errors.name">{{ errors.name }}</p>
+        <p id="nameError" class="mt-2 text-sm text-red-600 dark:text-red-500" v-if="errors.name">{{ errors.name }}</p>
       </div>
       <div class="mb-4">
         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
         <div class="flex">
-          <input type="email" id="email" v-model="form.email" class="rounded-none rounded-l-lg bg-gray-50 border
+          <input type="email" id="email"  v-model="form.email" class="rounded-none rounded-l-lg bg-gray-50 border
              border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0
              w-full text-sm border-gray-300 p-2.5" placeholder="Email">
           <span
@@ -46,7 +46,7 @@
         <label for="password"
                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
         <div class="flex">
-          <input :type="isPasswordVisible ? 'text': 'password'" id="password" v-model="form.password" class="rounded-none rounded-l-lg bg-gray-50 border
+          <input :type="isPasswordVisible ? 'text': 'password'" id="password"  v-model="form.password" class="rounded-none rounded-l-lg bg-gray-50 border
              border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0
              w-full text-sm border-gray-300 p-2.5" placeholder="Password">
           <span @click="togglePasswordVisibility"
@@ -72,7 +72,7 @@
         <p class="mt-2 text-sm text-red-600 dark:text-red-500" v-if="errors.password_confirmation">
           {{ errors.password_confirmation }}</p>
       </div>
-      <button class="bg-indigo-500 rounded-md text-white p-2 w-full my-2" type="submit" :disabled="isLoading">
+      <button id="regBtn" class="bg-indigo-500 rounded-md text-white p-2 w-full my-2" type="submit" :disabled="isLoading">
         {{ isLoading ? 'please wait ...' : 'Register' }}
       </button>
     </form>
@@ -85,7 +85,7 @@
 <script>
 import BaseLayout from "./BaseLayout";
 import axios from "axios";
-import http from "../../http";
+import http from "../../utils/http";
 
 export default {
   name: "register",
